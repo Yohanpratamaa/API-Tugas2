@@ -19,14 +19,15 @@
         {{-- sidebar End --}}
 
         {{-- Content Start --}}
-        <div class="content relative flex-1 h-screen">
+        <div class="content relative flex-1 h-screen overflow-y-auto">
 
             {{-- Circle Background --}}
             <div class="bg-gray-500 absolute right-0 top-90  w-[200px] h-[400px] rounded-l-full blur-lg">
 </div>
             {{-- Circle Background End --}}
-
-            @yield('content')
+            <div>
+                @yield('content')
+            </div>
 
         </div>
         {{-- Content End --}}
