@@ -4,11 +4,6 @@ function dropdownName() {
         selectedInventoryId: '',
         selectedOption: 'Pilih Nama Barang',
         unit_price: '',
-        partNumbers: [],
-        nsNumbers: [],
-        serialNumbers: [],
-        document: '', // URL dokumen
-        image: '',
         items: [],
 
         // Panggil API saat halaman dimuat
@@ -27,47 +22,11 @@ function dropdownName() {
         },
 
         // Pilih nama barang & isi data otomatis
-        selectItem(id, name, unit_price, part_number, document, image) {
+        selectItem(id, name) {
             this.selectedInventoryId = id;
             this.selectedOption = name;
-            this.unit_price = unit_price;
-            this.partNumbers = part_number || [];
-            this.image = image ? `http://127.0.0.1:8000/storage/${image}` : '';
-            this.document = document ? `http://127.0.0.1:8000/storage/${document}` : '';
             this.open = false;
         },
-
-        // Fungsi untuk mendapatkan ikon berdasarkan tipe dokumen
-        getDocumentIcon(docUrl) {
-            if (!docUrl) return '/svg/file-svgrepo-com.svg';
-            const extension = docUrl.split('.').pop().toLowerCase();
-            switch (extension) {
-                case 'pdf':
-                    return '/svg/pdf-svgrepo-com.svg';
-                case 'doc':
-                case 'docx':
-                    return '/svg/doc-svgrepo-com.svg';
-                case 'xlsx':
-                    return 'https://img.icons8.com/color/48/000000/microsoft-excel-2019.png';
-                default:
-                    return '/svg/file-svgrepo-com.svg';
-            }
-        },
-
-        getImageIcon(imgUrl) {
-            if (!imgUrl) return '\\svg\\img-box-svgrepo-com.svg';
-        },
-
-        // Fungsi untuk mendapatkan nama file dari URL
-        getDocumentName(docUrl) {
-            if (!docUrl) return 'Tidak ada dokumen';
-            return docUrl.split('/').pop();
-        },
-
-        getImageName(imgUrl) {
-            if (!imgUrl) return 'Tidak ada gambar';
-            return imgUrl.split('/').pop();
-        }
     };
 }
 
@@ -110,10 +69,6 @@ document.getElementById("outputForm").addEventListener("submit", function(event)
 
     let formData = new FormData();
     formData.append("inventory_id", idValue);
-    formData.append("destination", document.getElementById("destination").value);
-
-    formData.append("unit_price", document.getElementById("unit_price").value ? parseFloat(document.getElementById("unit_price").value.replace(/,/g, "")) : null);
-
     formData.append("quantity", document.getElementById("quantity").value);
 
     let dropOutDate = document.getElementById("drop_out_date").value;

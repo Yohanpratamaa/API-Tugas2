@@ -49,6 +49,17 @@
                     </div>
                 </div>
 
+                <div class="category">
+                    <label for="category" class="block text-[16px] font-bold text-gray-900"> Kategori <span class="text-red-500 ml-1">*</span></label>
+                    <div class="flex mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-500">
+                        <input
+                            type="text"
+                            name="category"
+                            id="category" required
+                            class="restrict-input w-full block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none ml-5" placeholder="Masukkan Nama Barang">
+                    </div>
+                </div>
+
                 {{-- Entry Date --}}
                 <div class="entry_date">
                     <label for="entry_date" class="block text-[16px] font-bold text-gray-900"> Tanggal Barang Masuk <span class="text-red-500 ml-1">*</span> </label>
