@@ -8,7 +8,7 @@
                 <img src="{{ asset('img/IHome.png') }}" alt="">
             </a>
             <a href="#" class="pl-3 font-semibold text-gray-500">/ Inventory </a>
-            <a href="/outBarang" class="pl-1 font-semibold {{ request()->is('outBarang') ? 'text-orange-500' : ''}}">/ Input Barang Keluar </a>
+            <a href="/outBarang" class="pl-1 font-semibold {{ request()->is('outBarang') ? 'text-blue-500' : ''}}">/ Input Barang Keluar </a>
         </div>
         <form action="" method="POST" id="outputForm" enctype="multipart/form-data">
 
@@ -43,106 +43,10 @@
                             </div>
                         </div>
 
-                        {{-- Nasional Serial Number --}}
-                        <div class="nsNumber mt-4">
-                            <label class="block text-[16px] font-bold text-gray-900">
-                                Nasional-Serial-Number <span class="text-red-500 ml-1">*</span>
-                            </label>
-                            <div id="nsNumberContainer">
-                                <!-- Input default jika partNumbers masih kosong -->
-                                <template x-if="nsNumbers.length === 0">
-                                    <div class="flex items-center mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-orange-500">
-                                        <input type="text" name="ns_number[]" value=""
-                                            class="w-full py~~-1.5 pr-3 pl-5 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none" readonly
-                                            placeholder="Nasional Serial Number Akan Terisi Otomatis">
-                                    </div>
-                                </template>
-
-                                <!-- Looping untuk partNumbers dari API -->
-                                <template x-for="(part, index) in nsNumbers" :key="index">
-                                    <div class="flex items-center mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-orange-500">
-                                        <input type="text" name="ns_number[]" :value="part"
-                                            class="w-full py-1.5 pr-3 pl-5 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none" readonly>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-
-                        {{-- Part Number --}}
-                        <div class="partNumber mt-4">
-                            <label class="block text-[16px] font-bold text-gray-900">
-                                Part-Number <span class="text-red-500 ml-1">*</span>
-                            </label>
-                            <div id="partNumberContainer">
-                                <!-- Input default jika partNumbers masih kosong -->
-                                <template x-if="partNumbers.length === 0">
-                                    <div class="flex items-center mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-orange-500">
-                                        <input type="text" name="part_number[]" value=""
-                                            class="w-full py-1.5 pr-3 pl-5 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none" readonly
-                                            placeholder="Part Number Akan Terisi Otomatis">
-                                    </div>
-                                </template>
-
-                                <!-- Looping untuk partNumbers dari API -->
-                                <template x-for="(part, index) in partNumbers" :key="index">
-                                    <div class="flex items-center mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-orange-500">
-                                        <input type="text" name="part_number[]" :value="part"
-                                            class="w-full py-1.5 pr-3 pl-5 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none" readonly>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-
-                        {{-- Part Number --}}
-                        <div class="partNumber mt-4">
-                            <label class="block text-[16px] font-bold text-gray-900">
-                                Serial-Number Barang
-                            </label>
-                            <div id="serialNumberContainer">
-                                <!-- Input default jika serialNumbers masih kosong -->
-                                <template x-if="serialNumbers.length === 0">
-                                    <div class="flex items-center mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-orange-500">
-                                        <input type="text" name="serial_number[]" value=""
-                                            class="w-full py-1.5 pr-3 pl-5 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none" readonly
-                                            placeholder="Serial Number Akan Terisi Otomatis">
-                                    </div>
-                                </template>
-
-                                <!-- Looping untuk partNumbers dari API -->
-                                <template x-for="(part, index) in serialNumbers" :key="index">
-                                    <div class="flex items-center mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-orange-500">
-                                        <input type="text" name="serial_number[]" :value="part"
-                                            class="w-full py-1.5 pr-3 pl-5 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none" readonly>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-
-                        {{-- Location --}}
-                        <div class="location mt-4">
-                            <label class="block text-[16px] font-bold text-gray-900">Lokasi Tujuan Barang <span class="text-red-500 ml-1">*</span></label>
-                            <div class="flex mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px]">
-                                <input type="text" name="destination" id="destination" required
-                                    class="restrict-input w-full py-1.5 pr-3 pl-5 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
-                                    placeholder="Masukkan Lokasi Tujuan Barang">
-                            </div>
-                        </div>
-
-                        {{-- Unit Price --}}
-                        <div class="unit_price mt-4">
-                            <label for="unit_price" class="block text-[16px] font-bold text-gray-900">
-                                Harga Barang Satuan <span class="text-red-500 ml-1">*</span>
-                            </label>
-                            <div class="flex items-center mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-orange-500">
-                                <div class="text-base text-gray-500 select-none text-md ml-5 mr-1">Rp.</div>
-                                <input type="text" name="unit_price" id="unit_price" x-model="unit_price" required class="w-full block min-w-0 grow py-1.5 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none" placeholder="Harga akan Otomatis Terisi" readonly>
-                            </div>
-                        </div>
-
                         {{-- Drop Out Date --}}
                         <div class="drop_out mt-4">
                             <label for="drop_out_date" class="block text-[16px] font-bold text-gray-900"> Tanggal Keluar Barang <span class="text-red-500 ml-1">*</span> </label>
-                            <div class="flex mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-orange-500">
+                            <div class="flex mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-500">
                                 <input type="date" name="drop_out_date" id="drop_out_date" required class=" w-full block min-w-0 grow py-1.5 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none ml-6">
                             </div>
                         </div>
@@ -150,88 +54,15 @@
                         {{-- Quantity --}}
                          <div class="quantity mt-4">
                             <label for="quantity" class="block text-[16px] font-bold text-gray-900"> Jumlah Barang Keluar <span class="text-red-500 ml-1">*</span> </label>
-                            <div class="flex mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-orange-500">
+                            <div class="flex mt-3 outline outline-1 outline-gray-300 rounded-xl h-[58px] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-blue-500">
                                 <input type="number" name="quantity" id="quantity" required min="0" class=" w-full block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-500 focus:outline-none ml-5" placeholder="Masukkan Jumlah Barang">
-                            </div>
-                        </div>
-
-                        {{-- Document Barang --}}
-                        <div class="col-span-full mt-4" >
-                            {{-- Label --}}
-                            <label for="document" class="block text-[16px] font-bold text-gray-900">
-                                Dokumen Barang
-                            </label>
-
-                            {{-- Tampilan Preview Tidak ada Dokumen --}}
-                            <div id="previewContainerDoc" x-show="!document" class="mt-2 items-center justify-between rounded-lg border border-gray-300 bg-gray-100 px-4 py-3">
-                                <div class="flex relative">
-                                    <div class="flex items-center space-x-3">
-                                        <!-- Ikon dokumen -->
-                                        <img id="previewIconDoc" :src="getDocumentIcon()" class="w-8 object-cover rounded-md" alt="Preview">
-                                        <!-- Nama file -->
-                                        <span id="fileNameDoc" x-text="getDocumentName(document)"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Tampilan Preview Dokumen -->
-                            <div id="previewContainerDoc" x-show="document" class="mt-2 items-center justify-between rounded-lg border border-gray-300 bg-gray-100 px-4 py-3">
-                                <div class="flex relative">
-                                    <div class="flex items-center space-x-3">
-                                        {{-- <input type="hidden" id="document" name="document" :value="document"> --}}
-                                        <!-- Ikon dokumen -->
-                                        <img id="previewIconDoc" :src="getDocumentIcon(document)" class="w-8 object-cover rounded-md" alt="Preview">
-                                        <!-- Nama file -->
-                                        <span id="fileNameDoc" x-text="getDocumentName(document)"></span>
-                                    </div>
-                                    <!-- Tombol Download -->
-                                    {{-- <a :href="document" target="_blank" class="absolute right-0 bg-gray-300 text-white px-4 py-1 rounded-md hover:bg-gray-400">
-                                        Download
-                                    </a> --}}
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- Gambar Barang --}}
-                        <div class="col-span-full mt-4">
-
-                            {{-- Label Gambar --}}
-                            <label for="image" class="block text-[16px] font-bold text-gray-900">
-                                Gambar Barang
-                            </label>
-
-                            {{-- Tampilan Preview Tidak ada Gambar --}}
-                            <div x-show="!image" class="mt-2 items-center justify-between rounded-lg border border-gray-300 bg-gray-100 px-4 py-3">
-                                <div class="flex relative">
-                                    <div class="flex items-center space-x-3">
-                                        <!-- Ikon dokumen -->
-                                        <img id="previewIconDoc" :src="getImageIcon()" class="w-8 object-cover rounded-md" alt="Preview">
-                                        <!-- Nama file -->
-                                        <span id="fileNameDoc" x-text="getImageName(image)"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Tampilan Preview Gambar -->
-                            <div id="previewContainer" x-show="image" class="mt-2 items-center justify-between rounded-lg border border-gray-300 bg-gray-100 px-4 py-3">
-                                <div class="flex relative">
-                                    <div class="flex items-center space-x-3">
-                                        {{-- <input type="hidden" id="image" name="image" :value="image"> --}}
-                                        <img :src="image" class="w-10 h-10 object-cover rounded-md" alt="Preview">
-                                        <span x-text="getImageName(image)"></span>
-                                    </div>
-                                    <!-- Tombol Download/View -->
-                                    {{-- <a :href="image" target="_blank" class="absolute right-0 mt-1 bg-gray-300 text-white px-4 py-1 rounded-md hover:bg-gray-400">
-                                        View
-                                    </a> --}}
-                                </div>
                             </div>
                         </div>
 
                     </div>
 
                     {{-- Button Submit --}}
-                    <button type="submit" class="flex justify-center items-center my-7 rounded-full col-span-full bg-orange-500 px-3 py-1.5 text-md/6 font-bold text-white shadow-xs hover:bg-orange-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 text-center" style="height: 50px;"> Input Barang Keluar </button>
+                    <button type="submit" class="flex justify-center items-center my-7 rounded-full col-span-full bg-blue-500 px-3 py-1.5 text-md/6 font-bold text-white shadow-xs hover:bg-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 text-center" style="height: 50px;"> Input Barang Keluar </button>
 
                 </div>
             </div>

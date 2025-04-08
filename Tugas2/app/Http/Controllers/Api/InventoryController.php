@@ -34,44 +34,22 @@ class InventoryController extends Controller
         try {
             $request->validate([
                 'name' => 'required|string|max:100|unique:inventories,name',
-                'location' => 'required|string|max:100',
-                'unit_price' => 'required|numeric',
                 'quantity' => 'required|integer|min:1',
                 'unit' => 'required|string|max:50',
-                'minimum' => 'required|integer|min:1',
-                'stock_status' => 'nullable|string|max:50',
                 'item_status' => 'nullable|string|max:50',
-                'total_price' => 'nullable|numeric|min:0',
                 'entry_date' => 'nullable|date',
-                'document_date' => 'nullable|date',
-                'date_of_manufacture' => 'nullable|date',
-                'date_of_expired' => 'nullable|date',
-                'source' => 'required|string|max:100',
                 'category' => 'required|string|max:100',
-                'condition' => 'required|string|max:50',
             ]);
-
-            $totalPrice = $request->unit_price * $request->quantity;
 
             $item_status = 'Masuk';
 
             $inventory = Inventory::create(array_merge($request->only([
                 'name',
-                'location',
-                'unit_price',
                 'quantity',
                 'unit',
-                'minimum',
                 'entry_date',
-                'document_date',
-                'date_of_expired',
-                'date_of_manufacture',
-                'source',
                 'category',
-                'condition',
-                'part_number',
             ]), [
-                'total_price' => $totalPrice,
                 'item_status' => $item_status,
             ]));
 

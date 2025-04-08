@@ -57,17 +57,17 @@
 
         {{-- Table --}}
         <div class="pt-[30px]">
-            <div class="overflow-y-auto"> <!-- Div pembungkus untuk scroll horizontal -->
-                <table id="dashboardTable" class="table-auto w-screen h-full text-left border-collapse border border-gray-400 rounded-xl">
+            <div class="overflow-y-auto">
+                <table id="dashboardTable" class="table-auto w-full h-full text-left border-collapse border border-gray-400 rounded-xl">
                     <thead>
                         <tr class="bg-gray-100">
-                            <th class="p-4 border border-gray-300 w-[200px]">Tanggal & Waktu</th>
-                            <th class="p-4 border border-gray-300 w-[180px]">Nama Barang</th>
-                            <th class="p-4 border border-gray-300 w-[130px]">Kategori</th>
-                            <th class="p-4 border border-gray-300 w-[80px]">Satuan</th>
-                            <th class="p-4 border border-gray-300 w-[160px]">Jumlah Barang</th>
-                            <th class="p-4 border border-gray-300 w-[150px]">Batas Minimum</th>
-                            <th class="p-4 border border-gray-300 w-[180px]">Status</th>
+                            <th class="p-4 border border-gray-300 ">Tanggal & Waktu</th>
+                            <th class="p-4 border border-gray-300 ">Nama Barang</th>
+                            <th class="p-4 border border-gray-300 ">Kategori</th>
+                            <th class="p-4 border border-gray-300 ">Satuan</th>
+                            <th class="p-4 border border-gray-300 ">Jumlah Barang</th>
+                            <th class="p-4 border border-gray-300 ">Tanggal Masuk Gudang</th>
+                            <th class="p-4 border border-gray-300 ">Status</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody">
@@ -78,7 +78,6 @@
         {{-- Table End --}}
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="{{ asset('js/grafik.js') }}"></script>
     <script src="{{ asset('js/tableDashboard.js') }}"></script>
     <script src="{{ asset('js/count.js') }}"></script>
 

@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <td class="p-4 border border-gray-300 text-gray-500">${item.category || "-"}</td>
             <td class="p-4 border border-gray-300 text-gray-500">${item.unit || "-"}</td>
             <td class="p-4 border border-gray-300 text-gray-500">${item.quantity ? `${item.quantity} ${item.unit || ''}` : "-"}</td>
-            <td class="p-4 border border-gray-300 text-gray-500">${item.minimum ? `${item.minimum} ${item.unit || ''}` : "-"}</td>
+            <td class="p-4 border border-gray-300 text-gray-500">${item.entry_date || "-"}</td>
             <td class="p-4 border border-gray-300 text-center">
                 ${
                     item.item_status === "Masuk"
