@@ -12,13 +12,9 @@ class InventoryOut extends Model
 
     protected $fillable = [
         'inventory_id',
-        'destination',
-        'unit_price',
         'drop_out_date',
         'quantity',
         'item_status',
-        'document',
-        'image'
     ];
 
     public function inventory()

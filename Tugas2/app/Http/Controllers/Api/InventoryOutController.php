@@ -37,12 +37,8 @@ class InventoryOutController extends Controller
             // Validasi manual
             $request->validate([
                 'inventory_id' => 'required|exists:inventories,id',
-                'destination' => 'required|string|max:100',
-                'unit_price' => 'required|numeric|min:0',
                 'drop_out_date' => 'required|date',
                 'quantity' => 'required|numeric|min:1',
-                'document' => 'nullable|file|mimes:jpg,png,pdf,doc,docx|max:10240',
-                'image' => 'nullable|file|mimes:jpg,png|max:10240',
             ]);
 
             DB::beginTransaction(); // Mulai transaksi database
@@ -60,10 +56,6 @@ class InventoryOutController extends Controller
                 return ApiResponse::error('Drop out date must be the same or after entry date.', 400);
             }
 
-            if ($request->unit_price != $inventory->unit_price) {
-                return ApiResponse::error('Unit price does not match the inventory price.', 400);
-            }
-
             if ($inventory->quantity <= $inventory->minimum) {
                 return ApiResponse::error('Stock is too low to be removed.', 400);
             }
@@ -79,40 +71,21 @@ class InventoryOutController extends Controller
                 $inventory->save();
             }
 
-            // Simpan dokumen & gambar jika ada
-            $documentPath = $request->hasFile('document')
-                ? $request->file('document')->store('documents', 'public')
-                : null;
-
-            $imagePath = $request->hasFile('image')
-                ? $request->file('image')->store('images', 'public')
-                : null;
-
             // Simpan data barang keluar
             $inventoryOut = InventoryOut::create([
                 'inventory_id' => $inventory->id,
-                'destination' => $request->destination,
-                'unit_price' => $request->unit_price,
                 'drop_out_date' => $request->drop_out_date,
                 'quantity' => $request->quantity,
                 'item_status' => 'Keluar',
-                'category' => $inventory->category ?? 'Uncategorized',
-                'document' => $documentPath,
-                'image' => $imagePath,
             ]);
 
             DB::commit(); // Simpan perubahan
 
             Log::info('Saving InventoryOut:', [
                 'inventory_id' => $inventory->id,
-                'destination' => $request->destination,
-                'unit_price' => $request->unit_price,
                 'drop_out_date' => $request->drop_out_date,
                 'quantity' => $request->quantity,
                 'item_status' => 'Keluar',
-                'category' => $inventory->category,
-                'document' => $documentPath,
-                'image' => $imagePath,
             ]);
 
             return ApiResponse::success(new InventoryOutResource($inventoryOut), 'Inventory successfully removed.', 201);

@@ -98,7 +98,7 @@ document.getElementById("outputForm").addEventListener("submit", function(event)
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/dashboard";
+                window.location.href = "/";
             } else if (result.dismiss === Swal.DismissReason.cancel) {
                 history.scrollRestoration = 'manual';
                 setTimeout(() => {
