@@ -7,7 +7,7 @@
         {{-- Header --}}
         <div class="flex justify-between pt-[45px] pb-[30px]">
 
-            <h1 class="text-3xl font-bold"> Selamat Datang kembali ! </h1>
+            <h1 class="text-3xl font-bold"> Selamat Datang Kembali ! </h1>
 
         </div>
         {{-- Header End --}}
@@ -19,7 +19,7 @@
                     <div class="flex flex-col text-white">
                         <div class="absolute top-0 left-0 py-[1.25rem] px-[1rem] flex items-center">
                             <div>
-                                <img src="{{ asset('img/Icon.png') }}" class="px-[1rem]" alt="">
+                                <img src="{{ asset('img/IInventory.png') }}" class="px-[1rem]" alt="">
                             </div>
                             <h1> TOTAL BARANG MASUK </h1>
                         </div>
@@ -38,7 +38,7 @@
                     <div class="flex flex-col text-white">
                         <div class="absolute top-0 left-0 py-[1.25rem] px-[1rem] flex items-center">
                             <div>
-                                <img src="{{ asset('img/Icon.png') }}" class="px-[1rem]" alt="">
+                                <img src="{{ asset('img/IInventory.png') }}" class="px-[1rem]" alt="">
                             </div>
                             <h1> TOTAL BARANG KELUAR </h1>
                         </div>
@@ -68,6 +68,7 @@
                             <th class="p-4 border border-gray-300 ">Jumlah Barang</th>
                             <th class="p-4 border border-gray-300 ">Tanggal Masuk Gudang</th>
                             <th class="p-4 border border-gray-300 ">Status</th>
+                            <th class="p-4 border border-gray-300 ">Operasi</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody">
