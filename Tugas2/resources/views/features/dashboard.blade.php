@@ -14,7 +14,7 @@
 
         {{-- Transaction In and Out --}}
         <div class="flex justify-start gap-12">
-            <div class="relative w-[532px] h-[9rem] rounded-2xl bg-[#F9771F]">
+            <div class="relative w-[532px] h-[9rem] rounded-2xl bg-[#1f72f9]">
                 <div class="flex min-h-full items-center">
                     <div class="flex flex-col text-white">
                         <div class="absolute top-0 left-0 py-[1.25rem] px-[1rem] flex items-center">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="relative w-[532px] h-[9rem] rounded-2xl bg-[#F9771F]">
+            <div class="relative w-[532px] h-[9rem] rounded-2xl bg-[#1f72f9]">
                 <div class="flex min-h-full items-center">
                     <div class="flex flex-col text-white">
                         <div class="absolute top-0 left-0 py-[1.25rem] px-[1rem] flex items-center">
@@ -62,9 +62,6 @@
                     <thead>
                         <tr class="bg-gray-100">
                             <th class="p-4 border border-gray-300 w-[200px]">Tanggal & Waktu</th>
-                            <th class="p-4 border border-gray-300 w-[150px]">Nasional-Serial-Number</th>
-                            <th class="p-4 border border-gray-300 w-[150px]">Part-Number</th>
-                            <th class="p-4 border border-gray-300 w-[150px]">Serial-Number</th>
                             <th class="p-4 border border-gray-300 w-[180px]">Nama Barang</th>
                             <th class="p-4 border border-gray-300 w-[130px]">Kategori</th>
                             <th class="p-4 border border-gray-300 w-[80px]">Satuan</th>

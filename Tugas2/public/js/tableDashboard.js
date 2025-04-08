@@ -30,9 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     : "-"
                 }
             </td>
-            <td class="p-4 border border-gray-300 text-gray-500">${item.nasional_serial_number || "-"}</td>
-            <td class="p-4 border border-gray-300 text-gray-500">${item.part_number || "-"}</td>
-            <td class="p-4 border border-gray-300 text-gray-500">${item.serial_number || "-"}</td>
             <td class="p-4 border border-gray-300 text-gray-500">${item.name || "-"}</td>
             <td class="p-4 border border-gray-300 text-gray-500">${item.category || "-"}</td>
             <td class="p-4 border border-gray-300 text-gray-500">${item.unit || "-"}</td>

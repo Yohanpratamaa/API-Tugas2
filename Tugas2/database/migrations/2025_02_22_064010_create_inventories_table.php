@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('unit', 50);
             $table->integer('minimum');
-            $table->string('stock_status')->default('Aman');
             $table->string('item_status')->default('Masuk');
             $table->decimal('total_price', 10, 2);
             $table->date('entry_date')->useCurrent();
@@ -29,9 +28,6 @@ return new class extends Migration
             $table->string('source', 100);
             $table->string('category', 100);
             $table->string('condition', 50);
-            $table->json('part_number');
-            $table->string('document')->nullable();
-            $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

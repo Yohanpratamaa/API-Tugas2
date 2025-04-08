@@ -5,14 +5,6 @@ use App\Http\Controllers\Api\InventoryController;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    return view('auth.login');
-})->name('login');
-
-Route::get('/otp', function () {
-    return view('auth.otp');
-});
-
-Route::get('/dashboard', function () {
     return view('features/dashboard');
 });
 
