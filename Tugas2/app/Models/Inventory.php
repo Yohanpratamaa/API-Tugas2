@@ -15,34 +15,17 @@ class Inventory extends Model
     protected $fillable = [
         'id',
         'name',
-        'location',
-        'unit_price',
         'quantity',
         'unit',
-        'minimum',
-        'stock_status',
         'item_status',
-        'total_price',
         'entry_date',
-        'document_date',
-        'date_of_manufacture',
-        'date_of_expired',
-        'source',
         'category',
-        'condition',
-        'part_number',
-        'document',
-        'image',
     ];
 
     protected $dates = ['deleted_at'];
 
     protected $casts = [
-        'part_number' => 'array',
         'entry_date' => 'date',
-        'document_date' => 'date',
-        'date_of_manufacture' => 'date',
-        'date_of_expired' => 'date'
     ];
 
     protected static function boot()

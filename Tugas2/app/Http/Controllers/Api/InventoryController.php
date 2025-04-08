@@ -94,41 +94,20 @@ class InventoryController extends Controller
         try {
             $request->validate([
                 'name' => 'sometimes|required|string|max:100',
-                'location' => 'sometimes|required|string|max:100',
-                'unit_price' => 'sometimes|required|numeric',
                 'quantity' => 'sometimes|required|integer',
                 'unit' => 'sometimes|required|string|max:50',
-                'minimum' => 'sometimes|required|integer|min:1',
-                'stock_status' => 'sometimes|nullable|string|max:50',
                 'item_status' => 'sometimes|nullable|string|max:50',
-                'total_price' => 'sometimes|nullable|numeric|min:0',
                 'entry_date' => 'sometimes|nullable|date',
-                'document_date' => 'sometimes|nullable|date',
-                'date_of_manufacture' => 'sometimes|nullable|date',
-                'date_of_expired' => 'sometimes|nullable|date',
-                'source' => 'sometimes|required|string|max:100',
                 'category' => 'sometimes|required|string|max:100',
-                'condition' => 'sometimes|required|string|max:50',
             ]);
             $inventory = Inventory::findOrFail($id);
 
-            $oldDocumentPath = $inventory->document;
-            $oldImagePath = $inventory->image;
-
             $updateData = $request->only([
                 'name',
-                'location',
-                'unit_price',
                 'quantity',
                 'unit',
-                'minimum',
                 'entry_date',
-                'document_date',
-                'date_of_manufacture',
-                'date_of_expired',
-                'source',
                 'category',
-                'condition',
             ]);
 
             $inventory->fill($updateData);
