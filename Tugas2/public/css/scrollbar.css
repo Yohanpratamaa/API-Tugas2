@@ -1,0 +1,9 @@
+/* Menghilangkan scrollbar tetapi tetap bisa discroll */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Untuk Chrome, Safari */
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* Untuk Internet Explorer & Edge */
+    scrollbar-width: none;  /* Untuk Firefox */
+}
