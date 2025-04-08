@@ -28,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
             ? `
                 <div class="flex gap-2 justify-center">
                     <button class="edit-btn flex items-center gap-x-2 px-3 py-2 text-gray-500 border border-gray-500 hover:bg-gray-100 rounded-lg">
-                        <img src="${editIcon}" alt="Edit" class="w-[50px]">
+                        <img src="${editIcon}" alt="Edit" class="w-[35px]">
                     </button>
                     <button class="delete-btn flex items-center gap-x-2 px-3 py-2 text-gray-500 border border-gray-500 hover:bg-gray-100 rounded-lg">
-                        <img src="${deleteIcon}" alt="Delete" class="w-[45px]">
+                        <img src="${deleteIcon}" alt="Delete" class="w-[30px]">
                     </button>
                 </div>
             `
@@ -53,11 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <td class="p-4 border border-gray-300 text-gray-500">${item.quantity ? `${item.quantity} ${item.unit || ''}` : "-"}</td>
             <td class="p-4 border border-gray-300 text-gray-500">${item.entry_date || "-"}</td>
             <td class="p-4 border border-gray-300 text-center">
-                ${
-                    item.item_status === "Masuk"
-                        ? `<button class="text-center w-[140px] h-[40px] rounded-md py-2 text-sm font-semibold ring-1 ring-green-400 text-green-300 hover:bg-gray-50">Masuk</button>`
-                        : `<button class="text-center w-[140px] h-[40px] rounded-md py-2 text-sm font-semibold ring-1 ring-red-400 text-red-500 hover:bg-gray-50">Keluar</button>`
-                }
+            ${
+                item.item_status === "Masuk"
+                    ? `<button style="text-align: center; width: 140px; height: 40px; border-radius: 6px; padding-top: 8px; padding-bottom: 8px; font-size: 14px; font-weight: 600; border: 1px solid #34d399; color: #86efac; background-color: transparent;" onmouseover="this.style.backgroundColor='#f9fafb'" onmouseout="this.style.backgroundColor='transparent'">Masuk</button>`
+                    : `<button style="text-align: center; width: 140px; height: 40px; border-radius: 6px; padding-top: 8px; padding-bottom: 8px; font-size: 14px; font-weight: 600; border: 1px solid #f87171; color: #ef4444; background-color: transparent;" onmouseover="this.style.backgroundColor='#f9fafb'" onmouseout="this.style.backgroundColor='transparent'">Keluar</button>`
+            }
             </td>
             <td class="p-4 border border-gray-300 text-center">
                 ${actionColumnContent}
